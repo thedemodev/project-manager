@@ -1,7 +1,11 @@
 const express = require('express');
+const middleware = require('./middleware/provider');
 
+// Express Setup
 const app = express();
 
-app.use(express.json());
+// Middleware
+middleware.provider(app);
 
+// Server Running
 app.listen(4040, () => console.log('Server is running 🔥'));
