@@ -1,7 +1,7 @@
 --  Creates the task table
 CREATE TABLE task (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(50)
+    title VARCHAR(50),
     creater INTEGER REFERENCES users(id) ON DELETE CASCADE,
     description VARCHAR(1000),
     stage INTEGER,
