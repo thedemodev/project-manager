@@ -3,18 +3,18 @@ import * as Icon from 'react-feather';
 
 // Styled Components
 import {
-    LoginContainer,
+    SignUpContainer,
     Logo,
     LoginForm,
     FormLabel,
     FormUsername,
     FormPassword,
     FormButton
-} from './LoginStyles';
+} from './SignUpStyles';
 
-const Login = props => {
+const SignUp = () => {
     return (
-        <LoginContainer>
+        <SignUpContainer>
             <Logo>
                 <Icon.Codepen size={35}/>
             </Logo>
@@ -29,11 +29,15 @@ const Login = props => {
                     <h1>Password</h1>
                 </FormLabel>
                 <FormPassword />
+                <FormLabel>
+                    <Icon.Mail size={15}/>
+                    <h1>Email</h1>
+                </FormLabel>
+                <FormUsername />
                 <FormButton>Sign In</FormButton>
-                <FormButton register> Register</FormButton>
             </LoginForm>
-        </LoginContainer>
+        </SignUpContainer>
     )
 };
 
-export default Login;
+export default SignUp;

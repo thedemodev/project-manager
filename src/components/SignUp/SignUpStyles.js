@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 // Components
-export const LoginContainer = styled.div`
+export const SignUpContainer = styled.div`
     width: 30%;
-    height: 55%;
+    height: 45%;
     background: white;
     border: 2px solid #a9a9a9;
     border-radius: 3px 3px 3px 3px;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding-top: 1%;
@@ -34,8 +34,7 @@ export const Logo = styled.div`
 
 export const LoginForm = styled.form`
     width: 65%;
-    height: 60%;
-    margin-top: 10%;
+    height: 90%;
 `
 
 export const FormLabel = styled.div`
@@ -54,16 +53,16 @@ export const FormLabel = styled.div`
 `
 
 export const FormUsername = styled.input`
-    width: 96.5%;
-    height: 15%;
+    width: 100%;
+    height: 14%;
     border: 2px solid #A6A6A6;
     background: #f7f7f7;
     border-radius: 3px 3px 3px 3px;
     outline: none;
+    margin-top: 3%;
     font-size: 14px;
     padding-left: 5px;
     transition: linear 150ms;
-    margin-top: 3%;
     :focus {
         border: 2px solid #336CB6; 
     }
@@ -76,16 +75,16 @@ export const FormUsername = styled.input`
 export const FormPassword = styled.input.attrs({
     type: 'password'
 })`
-    width: 96.5%;
-    height: 15%;
+    width: 100%;
+    height: 14%;
     border: 2px solid #A6A6A6;
     background: #f7f7f7;
     border-radius: 3px 3px 3px 3px;
     outline: none;
+    margin-top: 3%;
     font-size: 14px;
     padding-left: 5px;
     transition: linear 150ms;
-    margin-top: 3%;
     :focus {
         border: 2px solid #336CB6; 
     }
@@ -96,18 +95,18 @@ export const FormPassword = styled.input.attrs({
 `
 
 export const FormButton = styled.button`
-    width: 100%;
-    height: 18%;
-    background: ${props => props.register ? '#E84675' : '#336CB6'};
-    border: 3px solid ${props => props.register? '#df1c54': '#28548e'};
+    width: 104%;
+    height: 15%;
+    background: #336CB6;
+    border: 3px solid #28548e;
     color: white;
     border-radius: 3px 3px 3px 3px;
     outline: none;
+    margin-top: 10%;
     font-size: 14px;
     transition: linear 150ms;
-    margin-top: 10%;
     :hover {
         cursor: pointer;
-        background: ${props => props.register? '#ee7397': '#4e86ce'};
+        background: #4e86ce;
     }
 `

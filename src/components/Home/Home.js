@@ -7,11 +7,26 @@ import {
 
 // Components
 import Login from '../Login/Login';
+import SignUp from '../SignUp/SignUp';
 
 const Home = () => {
+    // State
+    const [portal, setPortal] = useState(true)
+
+    // Functions
+    const changePortal = () => {
+        let view = !portal;
+        setPortal(view);
+    };
+
     return (
         <HomeContainer>
-            <Login />
+            {
+                portal ?
+                <Login />
+                :
+                <SignUp />
+            }  
         </HomeContainer>
     )
 };
