@@ -2,11 +2,11 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // Components
-import Login from '../components/Login';
+import Home from '../components/Home/Home';
 
 // Router
 export default (
     <Switch>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/" component={Home} />
     </Switch>
 );

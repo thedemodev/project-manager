@@ -1,6 +1,6 @@
 import React from 'react';
-import './styles/semantic.min.css';
 import routes from './utils/routes';
+import 'reset-css';
 
 // Top Level Component
 const App = () => <div>{routes}</div>
