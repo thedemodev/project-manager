@@ -9,15 +9,13 @@ const lightGray = '#E7E7E7';
 
 // Themes
 const light = {
-    background: 'white',
-
+    bg: 'white',
+    bg2: lightBlack
 }
 
 const dark = {
-    background: lightBlack,
+    bg: lightBlack,
 }
 
 
-const theme = mode => mode === 'light' ? light : dark;
-
-export default theme;
+ export const theme = mode => mode === 'light' ? light : dark;

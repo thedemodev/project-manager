@@ -9,8 +9,6 @@ import {
 import Login from '../Login/Login';
 
 const Home = () => {
-    const [] = useState();
-
     return (
         <HomeContainer>
             <Login />
