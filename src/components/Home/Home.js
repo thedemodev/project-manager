@@ -14,16 +14,18 @@ const Home = () => {
     const [portal, setPortal] = useState(true)
 
     // Functions
-    const changePortal = () => {
-        let view = !portal;
-        setPortal(view);
+    const changePortal = event => {
+        // prevent the default behaviour of the form
+        event.preventDefault();
+        // change portal on state ot the opposite of
+        setPortal(!portal);
     };
 
     return (
         <HomeContainer>
             {
                 portal ?
-                <Login />
+                <Login changePortal={changePortal}/>
                 :
                 <SignUp />
             }  

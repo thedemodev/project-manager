@@ -34,7 +34,7 @@ const SignUp = () => {
                     <h1>Email</h1>
                 </FormLabel>
                 <FormUsername />
-                <FormButton>Sign In</FormButton>
+                <FormButton>Register</FormButton>
             </LoginForm>
         </SignUpContainer>
     )

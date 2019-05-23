@@ -24,7 +24,7 @@ export const Logo = styled.div`
     background: #336CB6;
     position: absolute;
     left: 40%;
-    top: -13%;
+    top: -10%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -35,7 +35,7 @@ export const Logo = styled.div`
 export const LoginForm = styled.form`
     width: 65%;
     height: 60%;
-    margin-top: 10%;
+    margin-top: 8%;
 `
 
 export const FormLabel = styled.div`
@@ -47,7 +47,7 @@ export const FormLabel = styled.div`
     align-items: flex-end;
     font-size: 14px;
     color: #A6A6A6;
-    margin-top: 3%;
+    margin-top: ${props => props.register ? '5%' : '3%'};
     h1 {
         margin-left: 3%;
     }
@@ -105,7 +105,7 @@ export const FormButton = styled.button`
     outline: none;
     font-size: 14px;
     transition: linear 150ms;
-    margin-top: 10%;
+    margin-top: ${props => props.register ? '6%' : '10%'};
     :hover {
         cursor: pointer;
         background: ${props => props.register? '#ee7397': '#4e86ce'};

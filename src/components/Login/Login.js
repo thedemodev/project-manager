@@ -30,7 +30,11 @@ const Login = props => {
                 </FormLabel>
                 <FormPassword />
                 <FormButton>Sign In</FormButton>
-                <FormButton register> Register</FormButton>
+                <FormLabel register>
+                    <Icon.HelpCircle size={15}/>
+                    <h1>Don't have an account?</h1>
+                </FormLabel>
+                <FormButton register onClick={props.changePortal}> Register</FormButton>
             </LoginForm>
         </LoginContainer>
     )
