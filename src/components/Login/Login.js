@@ -7,7 +7,8 @@ import {
     Logo,
     LoginForm,
     FormLabel,
-    FormInput,
+    FormUsername,
+    FormPassword,
     FormButton
 } from './LoginStyles';
 
@@ -19,15 +20,15 @@ const Login = () => {
             </Logo>
             <LoginForm>
                 <FormLabel>
-                    <Icon.User size={20}/>
+                    <Icon.User size={15}/>
                     <h1>Username</h1>
                 </FormLabel>
-                <FormInput />
+                <FormUsername />
                 <FormLabel>
-                    <Icon.Lock size={20}/>
+                    <Icon.Lock size={15}/>
                     <h1>Password</h1>
                 </FormLabel>
-                <FormInput password/>
+                <FormPassword />
                 <FormButton>Sign In</FormButton>
             </LoginForm>
         </LoginContainer>
