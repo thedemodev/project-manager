@@ -1,4 +1,11 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+// Animations
+
+const popIn = keyframes`
+    0% { opacity: 0; -webkit-transform: scale(0.5); }
+    100% { opacity: 1; -webkit-transform: scale(1); }
+`
 
 // Components
 export const LoginContainer = styled.div`
@@ -14,6 +21,7 @@ export const LoginContainer = styled.div`
     align-items: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding-top: 1%;
+    animation: ${popIn} 200ms linear;
 `
 
 export const Logo = styled.div`
@@ -99,7 +107,7 @@ export const FormButton = styled.button`
     width: 100%;
     height: 18%;
     background: ${props => props.register ? '#E84675' : '#336CB6'};
-    border: 3px solid ${props => props.register? '#df1c54': '#28548e'};
+    border: 3px solid ${props => props.register ? '#df1c54' : '#28548e'};
     color: white;
     border-radius: 3px 3px 3px 3px;
     outline: none;
@@ -108,6 +116,6 @@ export const FormButton = styled.button`
     margin-top: ${props => props.register ? '6%' : '10%'};
     :hover {
         cursor: pointer;
-        background: ${props => props.register? '#ee7397': '#4e86ce'};
+        background: ${props => props.register ? '#ee7397' : '#4e86ce'};
     }
 `
