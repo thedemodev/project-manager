@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import * as Icon from 'react-feather';
 import axios from 'axios';
+import swal from '@sweetalert/with-react';
 
 // Styled Components
 import {
@@ -29,7 +30,12 @@ const Login = props => {
                 console.log(response);
             })
             .catch(error => {
-                if (error) console.log(error);
+                if (error) {
+                    swal({
+                        text: `${error.message}`,
+                        button: "Got It"
+                    })
+                }
             });
     };
 
