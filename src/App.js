@@ -6,7 +6,7 @@ import { theme } from './utils/theme_provider';
 
 // Top Level Component
 const App = () => {
-    const [themeStyle, setTheme] = useState('light');
+    const [themeStyle] = useState('light');
 
     return (
         <ThemeProvider theme={theme(themeStyle)}>

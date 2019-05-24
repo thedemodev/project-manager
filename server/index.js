@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./auth/passport.auth');
 const express = require('express');
 const chalk = require('chalk');
 const middleware = require('./middleware/provider');

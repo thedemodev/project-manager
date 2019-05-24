@@ -6,13 +6,13 @@ exports.LoginStrategy = new LocalStrategy({
     passReqToCallback: true
 }, (req, username, password, done) => {
     // get the db instance
-    const db = app.get('db');
+    const db = req.app.get('db');
     // check to make sure the username and password are present
     if (username.length === 0 || password.length === 0){
         return done(null, false, {message: 'Username and Password are required.'})
     };
     // look for the user in the database
-    db.find({username})
+    db.users.find({username})
         .then(userResults => {
             // if the user does not exist return an error message
             if(userResults.length === 0){
