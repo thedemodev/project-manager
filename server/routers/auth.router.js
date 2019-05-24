@@ -9,6 +9,7 @@ const AuthRouter = express.Router();
 
 // Routes
 AuthRouter.post('/login', passport.authenticate('login'), AuthController.login);
+AuthRouter.post('/register', passport.authenticate('register'), AuthController.register);
 
 // Export Router
 module.exports = {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import * as Icon from 'react-feather';
 import swal from '@sweetalert/with-react';
+import axios from 'axios';
 
 // Styled Components
 import {
@@ -31,6 +32,30 @@ const SignUp = props => {
                 button: 'Okay'
             });
         };
+        // make an http request to sign up
+        axios.post('/auth/register', {username, password, email})
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(err => {
+                //create the error object
+                const error = Object.create(err);
+                //modify the error message based off of the response
+                if (error.response.status === 400) {
+                    //if username or password is missing
+                    error.message = 'Username and Password are required'
+                } else if (error.response.status === 401) {
+                    //if username or password are incorrect
+                    error.message = "Username is already taken, please try another!"
+                } else {
+                    error.message = "Internal Server Error"
+                };
+                // flash a pop up of the error message
+                swal({
+                    text: error.message,
+                    button: "Okay"
+                })
+            });
     };
 
     // JSX

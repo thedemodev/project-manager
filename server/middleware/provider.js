@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
+const passport = require('passport');
 
 // Variables from process environment
 const {
@@ -11,6 +12,7 @@ const {
 exports.provider = app => {
     app.use(express.json());
     app.use(cors());
+    app.use(passport.initialize());
     app.use(session({
         secret: SESSION_SECRET,
         resave: false,

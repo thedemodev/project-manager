@@ -2,7 +2,7 @@ const LocalStrategy = require('passport-local');
 const bcrypt = require('bcrypt');
 
 // register strategy
-exports.register = new LocalStrategy({
+exports.RegisterStrategy = new LocalStrategy({
     passReqToCallback: true
 }, (req, username, password, done) => {
     // take the email off of the body of the req
@@ -15,7 +15,7 @@ exports.register = new LocalStrategy({
     db.users.find({ username })
         .then(userResults => {
             // check if there are any results
-            if(userResults > 0){
+            if(userResults.length > 0){
                 return done(null, false, {message: 'Username is already taken, please try again!'});
             };
             // if the user isn't found, create a new user
@@ -34,5 +34,5 @@ exports.register = new LocalStrategy({
         .catch(error => {
             if (error) throw error;
             done(null, false, {message: 'Internal Server Error'})
-        })
+        });
 });
