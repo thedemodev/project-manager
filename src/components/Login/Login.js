@@ -23,6 +23,13 @@ const Login = props => {
     const loginSubmit = event => {
         // prevent the default form behavour
         event.preventDefault();
+        // make sure input fields are filled out
+        if (username === '' || password === ''){
+            return swal({
+                text: 'Username and Password are required!',
+                button: 'Okay'
+            })
+        };
         // make a post request to login the user
         axios.post('/auth/login', { username, password })
             .then(response => {
@@ -44,13 +51,13 @@ const Login = props => {
                 // flash a pop up of the error message
                 swal({
                     text: error.message,
-                    button: "Got It"
+                    button: "Okay"
                 })
             });
     };
     // JSX
     return (
-        <LoginContainer >
+        <LoginContainer>
             <Logo>
                 <Icon.Codepen size={35} />
             </Logo>

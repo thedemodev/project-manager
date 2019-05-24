@@ -37,6 +37,11 @@ export const Logo = styled.div`
     justify-content: space-around;
     align-items: center;
     color: white;
+    transition: 1200ms;
+    :hover {
+        cursor: pointer;
+        transform: rotate(360deg);
+    }
 `
 
 export const LoginForm = styled.form`
@@ -60,9 +65,7 @@ export const FormLabel = styled.div`
     }
 `
 
-export const FormUsername = styled.input.attrs({
-    required: true
-})`
+export const FormUsername = styled.input`
     width: 96.5%;
     height: 15%;
     border: 2px solid #A6A6A6;
@@ -83,8 +86,7 @@ export const FormUsername = styled.input.attrs({
 `
 
 export const FormPassword = styled.input.attrs({
-    type: 'password',
-    required: true
+    type: 'password'
 })`
     width: 96.5%;
     height: 15%;
