@@ -17,6 +17,10 @@
     transition: linear 200ms;
 }
 
+.swal-button:focus {
+    box-shadow: none;
+}
+
 .swal-button:not([disabled]):hover {
     background-color: #ee7397;
 }
