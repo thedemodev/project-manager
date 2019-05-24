@@ -1,7 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
 // Animations
-
 const popIn = keyframes`
     0% { opacity: 0; -webkit-transform: scale(0.5); }
     100% { opacity: 1; -webkit-transform: scale(1); }
@@ -61,7 +60,9 @@ export const FormLabel = styled.div`
     }
 `
 
-export const FormUsername = styled.input`
+export const FormUsername = styled.input.attrs({
+    required: true
+})`
     width: 96.5%;
     height: 15%;
     border: 2px solid #A6A6A6;
@@ -82,7 +83,8 @@ export const FormUsername = styled.input`
 `
 
 export const FormPassword = styled.input.attrs({
-    type: 'password'
+    type: 'password',
+    required: true
 })`
     width: 96.5%;
     height: 15%;

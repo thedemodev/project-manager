@@ -27,7 +27,7 @@ const Home = () => {
                 portal ?
                 <Login changePortal={changePortal}/>
                 :
-                <SignUp />
+                <SignUp changePortal={changePortal}/>
             }  
         </HomeContainer>
     )

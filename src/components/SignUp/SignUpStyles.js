@@ -1,5 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 
+// Animations
+const popIn = keyframes`
+    0% { opacity: 0; -webkit-transform: scale(0.5); }
+`
+
 // Components
 export const SignUpContainer = styled.div`
     width: 30%;
@@ -13,7 +18,8 @@ export const SignUpContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    padding-top: 1%;   
+    padding-top: 1%;  
+    animation: ${popIn} 200ms linear;
 `
 
 export const Logo = styled.div`
@@ -40,7 +46,7 @@ export const LoginForm = styled.form`
 
 export const FormLabel = styled.div`
     width: 100%;
-    height: 8%;
+    height: 5%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -53,9 +59,11 @@ export const FormLabel = styled.div`
     }
 `
 
-export const FormUsername = styled.input`
+export const FormUsername = styled.input.attrs({
+    required: true
+})`
     width: 96.5%;
-    height: 15%;
+    height: 13%;
     border: 2px solid #A6A6A6;
     background: #f7f7f7;
     border-radius: 3px 3px 3px 3px;
@@ -74,10 +82,11 @@ export const FormUsername = styled.input`
 `
 
 export const FormPassword = styled.input.attrs({
-    type: 'password'
+    type: 'password',
+    required: true
 })`
     width: 96.5%;
-    height: 15%;
+    height: 13%;
     border: 2px solid #A6A6A6;
     background: #f7f7f7;
     border-radius: 3px 3px 3px 3px;
@@ -98,16 +107,17 @@ export const FormPassword = styled.input.attrs({
 export const FormButton = styled.button`
     width: 100%;
     height: 18%;
-    background: #E84675;
-    border: 3px solid #df1c54;
+    background: ${props => props.login ? '#336CB6': '#E84675'};
+    border: 3px solid ${props => props.login ? '#28548e' : '#df1c54'};
     color: white;
     border-radius: 3px 3px 3px 3px;
     outline: none;
-    margin-top: 10%;
+    margin-top: 6%;
+    margin-bottom: ${props => props.login ? '0%' : '3%'};
     font-size: 14px;
     transition: linear 150ms;
     :hover {
         cursor: pointer;
-        background: #ee7397;
+        background: ${props => props.login ? '#4e86ce' : '#ee7397'};
     }
 `

@@ -12,7 +12,7 @@ import {
     FormButton
 } from './SignUpStyles';
 
-const SignUp = () => {
+const SignUp = props => {
     return (
         <SignUpContainer>
             <Logo>
@@ -35,6 +35,11 @@ const SignUp = () => {
                 </FormLabel>
                 <FormUsername />
                 <FormButton>Register</FormButton>
+                <FormLabel>
+                    <Icon.XCircle size={15}/>
+                    <h1>Already have an account?</h1>
+                </FormLabel>
+                <FormButton login onClick={props.changePortal}>Back To Login</FormButton>
             </LoginForm>
         </SignUpContainer>
     )

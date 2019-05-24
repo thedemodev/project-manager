@@ -4,7 +4,6 @@ import * as Icon from 'react-feather';
 // Styled Components
 import {
     LoginContainer,
-    ActiveLoginContainer,
     Logo,
     LoginForm,
     FormLabel,
