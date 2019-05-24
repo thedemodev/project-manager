@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as Icon from 'react-feather';
 import swal from '@sweetalert/with-react';
 import axios from 'axios';
+import Loader from 'react-loader-spinner'
 
 // Styled Components
 import {
@@ -19,13 +20,21 @@ const SignUp = props => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    // Effects
+    useEffect(() => {
+        // this is will allow loading to change after the asynch code
+    }, [loading]);
 
     // Functions
     const registerSubmit = event => {
         // prevent the forms default submit behavour
         event.preventDefault();
+        // change the button to display a loading
+        setLoading(true);
         // make sure the fields are filled
-        if (username === '' || password === '' || email === ''){
+        if (username === '' || password === '' || email === '') {
             // if they aren't present a pop message
             return swal({
                 text: 'Username, Password, and Email are all required!',
@@ -33,11 +42,15 @@ const SignUp = props => {
             });
         };
         // make an http request to sign up
-        axios.post('/auth/register', {username, password, email})
+        axios.post('/auth/register', { username, password, email })
             .then(response => {
+                // stop the loading animation
+                setLoading(false);
                 console.log(response.data);
             })
             .catch(err => {
+                // change the button to display a loading
+                setLoading(false);
                 //create the error object
                 const error = Object.create(err);
                 //modify the error message based off of the response
@@ -54,7 +67,8 @@ const SignUp = props => {
                 swal({
                     text: error.message,
                     button: "Okay"
-                })
+                });
+
             });
     };
 
@@ -62,25 +76,25 @@ const SignUp = props => {
     return (
         <SignUpContainer>
             <Logo>
-                <Icon.Codepen size={35} className="logo"/>
+                <Icon.Codepen size={35} className="logo" />
             </Logo>
             <LoginForm onSubmit={registerSubmit}>
                 <FormLabel>
                     <Icon.User size={15} />
                     <h1>Username</h1>
                 </FormLabel>
-                <FormUsername onChange={event => setUsername(event.target.value)}/>
+                <FormUsername onChange={event => setUsername(event.target.value)} />
                 <FormLabel>
                     <Icon.Lock size={15} />
                     <h1>Password</h1>
                 </FormLabel>
-                <FormPassword onChange={event => setPassword(event.target.value)}/>
+                <FormPassword onChange={event => setPassword(event.target.value)} />
                 <FormLabel>
                     <Icon.Mail size={15} />
                     <h1>Email</h1>
                 </FormLabel>
-                <FormUsername onChange={event => setEmail(event.target.value)}/>
-                <FormButton>Register</FormButton>
+                <FormUsername onChange={event => setEmail(event.target.value)} />
+                <FormButton>{loading ? <Loader type="ThreeDots" height={20} width={20} color="#FFF" /> : 'Register'}</FormButton>
                 <FormLabel>
                     <Icon.XCircle size={15} />
                     <h1>Already have an account?</h1>

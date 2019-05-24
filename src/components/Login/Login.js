@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as Icon from 'react-feather';
 import axios from 'axios';
 import swal from '@sweetalert/with-react';
+import Loader from 'react-loader-spinner';
 
 // Styled Components
 import {
@@ -18,11 +19,19 @@ const Login = props => {
     // State
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    // Effects
+    useEffect(() => {
+        // this maintains the loading effect
+    }, [loading]);
 
     // Functions
     const loginSubmit = event => {
         // prevent the default form behavour
         event.preventDefault();
+        // give the login btn a loading effect
+        setLoading(true);
         // make sure input fields are filled out
         if (username === '' || password === ''){
             return swal({
@@ -33,9 +42,13 @@ const Login = props => {
         // make a post request to login the user
         axios.post('/auth/login', { username, password })
             .then(response => {
+                // set loading to false
+                setLoading(false);
                 console.log(response);
             })
             .catch(err => {
+                // set loading to false
+                setLoading(false);
                 //create the error object
                 const error = Object.create(err);
                 //modify the error message based off of the response
@@ -55,6 +68,7 @@ const Login = props => {
                 })
             });
     };
+
     // JSX
     return (
         <LoginContainer>
@@ -72,7 +86,7 @@ const Login = props => {
                     <h1>Password</h1>
                 </FormLabel>
                 <FormPassword onChange={event => setPassword(event.target.value)} />
-                <FormButton>Sign In</FormButton>
+                <FormButton>{loading ? <Loader type="ThreeDots" height={20} width={20} color="#FFF" /> : 'Sign In'}</FormButton>
                 <FormLabel register>
                     <Icon.HelpCircle size={15} />
                     <h1>Don't have an account?</h1>
