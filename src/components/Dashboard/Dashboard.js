@@ -1,10 +1,23 @@
 import React from 'react'
 
-const Dashboard = () => {
+// Styled Components
+import {
+    DashboardContainer,
+    ApplicationContainer
+} from './DashboardStyles';
+
+// Components
+import DashboardSideNav from '../DashboardSideNav/DashboardSideNav';
+import ApplicationNav from '../ApplicationNav/ApplicationNav';
+
+const Dashboard = props => {
     return (
-        <div>
-            
-        </div>
+       <DashboardContainer>
+            <DashboardSideNav />
+            <ApplicationContainer>
+                <ApplicationNav />
+            </ApplicationContainer>
+       </DashboardContainer>
     )
 };
 
