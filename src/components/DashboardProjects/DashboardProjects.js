@@ -10,6 +10,8 @@ const DashboardProjects = () => {
     // Context State
     const [{user}, dispatch] = useStateValue();
 
+    console.log(user);
+
     return (
         <DashboardProjectsContainer>
 

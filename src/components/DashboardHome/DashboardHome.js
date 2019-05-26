@@ -1,4 +1,5 @@
 import React from 'react'
+import { useStateValue } from '../../context/provider';
 
 // Styled Components
 import {
@@ -6,9 +7,11 @@ import {
 } from './DashboardHomeStyles';
 
 const DashboardHome = () => {
+    const [{user}, setUser] = useStateValue();
+    console.log(user);
     return (
         <DashboardHomeContainer>
-            
+
         </DashboardHomeContainer>
     )
 };

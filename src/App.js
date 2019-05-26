@@ -11,14 +11,17 @@ import { StateProvider } from './context/provider';
 const App = () => {
     // Context State
     const initialState = {
-        user: {
-            first_name: 'tayte'
-        }
+        user: {}
     };
 
     // Context Reducer
     const reducer = (state, action) => {
         switch (action.type) {
+            case 'set_user':
+                return {
+                    ...state,
+                    user: action.user
+                };
             default:
                 return state;
         };

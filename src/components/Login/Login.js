@@ -4,6 +4,7 @@ import axios from 'axios';
 import swal from '@sweetalert/with-react';
 import Loader from 'react-loader-spinner';
 import { withRouter } from 'react-router-dom'
+import { useStateValue } from '../../context/provider';
 
 // Styled Components
 import {
@@ -17,6 +18,9 @@ import {
 } from './LoginStyles';
 
 const Login = props => {
+    // Context State
+    const [{user}, setUser] = useStateValue();
+    
     // State
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -49,6 +53,11 @@ const Login = props => {
                 console.log(props)
                 // set loading to false
                 setLoading(false);
+                //set the user to the gloabl context state
+                setUser({
+                    type: 'set_user',
+                    user: {...response.data}
+                });
                 // // push the user to the dash
                 props.history.push('/dashboard/home');
             })
