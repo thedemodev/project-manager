@@ -3,6 +3,7 @@ import * as Icon from 'react-feather';
 import axios from 'axios';
 import swal from '@sweetalert/with-react';
 import Loader from 'react-loader-spinner';
+import { withRouter } from 'react-router-dom'
 
 // Styled Components
 import {
@@ -33,7 +34,10 @@ const Login = props => {
         // give the login btn a loading effect
         setLoading(true);
         // make sure input fields are filled out
-        if (username === '' || password === ''){
+        if (username === '' || password === '') {
+            // change loading
+            setLoading(false);
+            // send a pop up
             return swal({
                 text: 'Username and Password are required!',
                 button: 'Okay'
@@ -42,9 +46,11 @@ const Login = props => {
         // make a post request to login the user
         axios.post('/auth/login', { username, password })
             .then(response => {
+                console.log(props)
                 // set loading to false
                 setLoading(false);
-                console.log(response);
+                // // push the user to the dash
+                props.history.push('/dashboard');
             })
             .catch(err => {
                 // set loading to false
@@ -97,4 +103,4 @@ const Login = props => {
     )
 };
 
-export default Login;
+export default withRouter(Login);

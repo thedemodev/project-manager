@@ -3,6 +3,7 @@ import * as Icon from 'react-feather';
 import swal from '@sweetalert/with-react';
 import axios from 'axios';
 import Loader from 'react-loader-spinner'
+import { withRouter } from 'react-router-dom';
 
 // Styled Components
 import {
@@ -35,6 +36,8 @@ const SignUp = props => {
         setLoading(true);
         // make sure the fields are filled
         if (username === '' || password === '' || email === '') {
+            // change the loading animation for the button
+            setLoading(false);
             // if they aren't present a pop message
             return swal({
                 text: 'Username, Password, and Email are all required!',
@@ -46,7 +49,8 @@ const SignUp = props => {
             .then(response => {
                 // stop the loading animation
                 setLoading(false);
-                console.log(response.data);
+                // push user to dashboard
+                props.history.push('/dashboard');
             })
             .catch(err => {
                 // change the button to display a loading
@@ -105,4 +109,4 @@ const SignUp = props => {
     )
 };
 
-export default SignUp;
+export default withRouter(SignUp);
