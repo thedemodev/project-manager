@@ -63,9 +63,13 @@ export const Link = styled(NavLink)`
         color: white;
         box-shadow: 1px 1px 5px 0.5px #DDDDEA;    
         transform: scale(1.1); 
+        &:hover {
+            color: white;
+        }
     }
     &:hover {
-        transform: scale(1.2);
+        transform: scale(1.1);
+        color: #E84675;
     }
 `
 

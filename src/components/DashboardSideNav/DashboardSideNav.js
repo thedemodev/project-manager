@@ -23,7 +23,7 @@ const DashboardSideNav = () => {
                 <Link activeClassName="active" to="/dashboard/home">
                     <Icon.Home size={20} />
                 </Link>
-                <Link activeClassName="active" to="/dashboard/tasks">
+                <Link activeClassName="active" to="/dashboard/projects">
                     <Icon.File size={20} />
                 </Link>
                 <Link activeClassName="active" to="/dashboard/messages">
