@@ -1,6 +1,5 @@
 import React from 'react'
 import * as Icon from 'react-feather';
-import { NavLink } from 'react-router-dom';
 
 // Styled Components
 import {
@@ -8,7 +7,8 @@ import {
     LogoContainer,
     LogoBadge,
     MenuContainer,
-    ThemeContainer
+    ThemeContainer,
+    Link
 } from './DashboardSideNavStyles';
 
 const DashboardSideNav = () => {
@@ -16,25 +16,25 @@ const DashboardSideNav = () => {
         <SideNavContainer>
             <LogoContainer>
                 <LogoBadge>
-                    <Icon.Codepen size={35} />
+                    <Icon.Codepen size={33} />
                 </LogoBadge>
             </LogoContainer>
             <MenuContainer>
-                <NavLink activeClassName="active" to="/dashboard">
+                <Link activeClassName="active" to="/dashboard/home">
                     <Icon.Home size={20} />
-                </NavLink>
-                <NavLink activeClassName="active" to="/dashboard/tasks">
+                </Link>
+                <Link activeClassName="active" to="/dashboard/tasks">
                     <Icon.File size={20} />
-                </NavLink>
-                <NavLink activeClassName="active" to="/dashboard/messages">
+                </Link>
+                <Link activeClassName="active" to="/dashboard/messages">
                     <Icon.MessageSquare size={20} />
-                </NavLink>
-                <NavLink activeClassName="active" to="/dashboard/users">
+                </Link>
+                <Link activeClassName="active" to="/dashboard/users">
                     <Icon.Users size={20} />
-                </NavLink>
-                <NavLink activeClassName="active" to="/dashboard/settings">
+                </Link>
+                <Link activeClassName="active" to="/dashboard/settings">
                     <Icon.Settings size={20} />
-                </NavLink>
+                </Link>
             </MenuContainer>
             <ThemeContainer>
 

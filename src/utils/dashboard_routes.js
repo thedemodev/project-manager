@@ -6,6 +6,6 @@ import DashboardHome from '../components/DashboardHome/DashboardHome';
 
 export default (
     <Switch>
-        <Route path="/dashboard" component={DashboardHome} />
+        <Route path="/dashboard/home" component={DashboardHome} />
     </Switch>
 )

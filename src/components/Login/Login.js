@@ -50,7 +50,7 @@ const Login = props => {
                 // set loading to false
                 setLoading(false);
                 // // push the user to the dash
-                props.history.push('/dashboard');
+                props.history.push('/dashboard/home');
             })
             .catch(err => {
                 // set loading to false
