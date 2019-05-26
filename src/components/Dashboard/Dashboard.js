@@ -1,5 +1,8 @@
 import React from 'react'
 
+// Dashboard Routes
+import DashboardRoutes from '../../utils/dashboard_routes';
+
 // Styled Components
 import {
     DashboardContainer,
@@ -16,6 +19,7 @@ const Dashboard = props => {
             <DashboardSideNav />
             <ApplicationContainer>
                 <ApplicationNav />
+                {DashboardRoutes}
             </ApplicationContainer>
        </DashboardContainer>
     )
