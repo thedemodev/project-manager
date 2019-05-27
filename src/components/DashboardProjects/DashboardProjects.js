@@ -1,13 +1,13 @@
 import React from 'react'
-import { useStateValue } from '../../context/provider';
 import { withRouter } from 'react-router-dom';
-
+import * as Icon from 'react-feather';
 
 // Styled Components
 import {
     DashboardProjectsContainer,
     DashboardProjectsHeader,
-    ProjectsLink
+    ProjectsLink,
+    NewProjectButton
 } from './DashboardProjectsStyles';
 
 // Routes
@@ -33,6 +33,10 @@ const DashboardProjects = props => {
                 <ProjectsLink activeClassName="active" to="/dashboard/projects/contributing" className="link-two">
                     <h1>Contributing</h1>
                 </ProjectsLink>
+                <NewProjectButton to="/dashboard/projects/newproject">
+                    <Icon.Plus size={20} />
+                    <h1>New Project</h1>
+                </NewProjectButton>
             </DashboardProjectsHeader>
             {projectRoutes}
         </DashboardProjectsContainer>

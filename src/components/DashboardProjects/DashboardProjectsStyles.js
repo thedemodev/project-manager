@@ -70,3 +70,28 @@ export const ProjectsLink = styled(NavLink)`
         background: #DDDDEA50;
     }
 `
+
+export const NewProjectButton = styled(Link)`
+    width: 10%;
+    height: 45%;
+    background: #336CB6;
+    border: 2px solid #28548e;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 14px;
+    transition: linear 200ms;
+    text-decoration: none;
+    box-shadow: 1px 1px 5px 0.5px #DDDDEA80;
+    margin-right: 3%;
+    &:hover {
+        cursor: pointer;
+        background: #4e86ce;
+    }
+    &:active {
+        background: #336CB6;
+    }
+`
