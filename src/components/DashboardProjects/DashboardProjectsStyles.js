@@ -27,7 +27,7 @@ export const DashboardProjectsHeader = styled.div`
     h2 {
         font-size: 22px;
         margin-left: 3%;
-        color: #A9A9A9;
+        color: #232323;
     }
 `
 
@@ -68,27 +68,5 @@ export const ProjectsLink = styled(NavLink)`
     }
     &:hover {
         background: #DDDDEA50;
-    }
-`
-
-export const NewProjectButton = styled(Link)`
-    width: 10%;
-    height: 10%;
-    background: #336CB6;
-    border: 2px solid #28548e;
-    border-radius: 3px 3px 3px 3px;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: 14px;
-    margin-left: auto;
-    margin-right: 3%;
-    transition: linear 200ms;
-    text-decoration: none;
-    &:hover {
-        cursor: pointer;
-        background: #4e86ce;
     }
 `

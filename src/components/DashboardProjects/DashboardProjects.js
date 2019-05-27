@@ -1,18 +1,27 @@
 import React from 'react'
 import { useStateValue } from '../../context/provider';
-import * as Icon from 'react-feather';
+import { withRouter } from 'react-router-dom';
+
 
 // Styled Components
 import {
     DashboardProjectsContainer,
     DashboardProjectsHeader,
-    ProjectsLink,
-    NewProjectButton
+    ProjectsLink
 } from './DashboardProjectsStyles';
 
-const DashboardProjects = () => {
-    // Context State
-    const [{ user }, dispatch] = useStateValue();
+// Routes
+import projectRoutes from '../../utils/dashboard_projects_routes';
+
+const DashboardProjects = props => {
+    // Route the user immediately to the projects they are managing
+    const routeUser = () => {
+        if (props.location.pathname === '/dashboard/projects') {
+            props.history.push('/dashboard/projects/managing');
+        };
+    };
+
+    routeUser();
 
     return (
         <DashboardProjectsContainer>
@@ -25,12 +34,9 @@ const DashboardProjects = () => {
                     <h1>Contributing</h1>
                 </ProjectsLink>
             </DashboardProjectsHeader>
-            {/* <NewProjectButton>
-                <Icon.Plus size={20} />
-                <h1>New Project</h1>
-            </NewProjectButton> */}
+            {projectRoutes}
         </DashboardProjectsContainer>
     )
 };
 
-export default DashboardProjects;
+export default withRouter(DashboardProjects);
