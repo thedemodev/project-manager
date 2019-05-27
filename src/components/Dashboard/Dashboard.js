@@ -17,7 +17,7 @@ import ApplicationNav from '../ApplicationNav/ApplicationNav';
 
 const Dashboard = props => {
     // Context State
-    const [{ user }, setUser] = useStateValue();
+    const [{ user }] = useStateValue();
 
     // Functions
     const checkAuth = user => {
@@ -28,7 +28,7 @@ const Dashboard = props => {
     };
 
     // checks to make sure a user is logged in
-    checkAuth(user);
+    // checkAuth(user);
 
     return (
         <DashboardContainer>
