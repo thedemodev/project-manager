@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as Icon from 'react-feather';
 
 // Styled Components
@@ -12,6 +12,18 @@ import {
 } from './DashboardSideNavStyles';
 
 const DashboardSideNav = () => {
+    //State
+    const [mode, setMode] = useState(1);
+
+    // Functions
+    const changeTheme = () => {
+        if (mode === 0) {
+            setMode(1);
+        } else {
+            setMode(0);
+        }
+    };
+
     return (
         <SideNavContainer>
             <LogoContainer>
@@ -37,7 +49,7 @@ const DashboardSideNav = () => {
                 </Link>
             </MenuContainer>
             <ThemeContainer>
-
+                <input type="range" min="0" max="1" value={mode} onClick={changeTheme}/>
             </ThemeContainer>
         </SideNavContainer>
     )

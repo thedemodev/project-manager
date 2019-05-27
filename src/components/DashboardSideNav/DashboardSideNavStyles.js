@@ -75,5 +75,30 @@ export const Link = styled(NavLink)`
 
 export const ThemeContainer = styled.div`
     width: 100%;
-    height: 15%;
+    height: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 13px;
+    /* border: 1px solid #DDDDEA; */
+    border-radius: 30px 30px 30px 30px;
+    outline: none;
+    margin-left: 5%;
+    background: #E84675;
+    ::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      border: 2px solid #DDDDEA;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+    }
+  }
 `

@@ -1,4 +1,6 @@
 import React from 'react'
+import { useStateValue } from '../../context/provider';
+import { withRouter } from 'react-router-dom';
 
 // Dashboard Routes
 import DashboardRoutes from '../../utils/dashboard_routes';
@@ -14,16 +16,30 @@ import DashboardSideNav from '../DashboardSideNav/DashboardSideNav';
 import ApplicationNav from '../ApplicationNav/ApplicationNav';
 
 const Dashboard = props => {
+    // Context State
+    const [{ user }, setUser] = useStateValue();
+
+    // Functions
+    const checkAuth = user => {
+        // check to make sure the user is authenticated before displaying the dash
+        if(!user.id){
+            props.history.push('/');
+        };
+    };
+
+    // checks to make sure a user is logged in
+    checkAuth(user);
+
     return (
-       <DashboardContainer>
+        <DashboardContainer>
             <DashboardSideNav />
             <ApplicationContainer>
                 <ApplicationNav />
                 {DashboardRoutes}
             </ApplicationContainer>
-       </DashboardContainer>
+        </DashboardContainer>
     )
 };
 
 
-export default Dashboard;
+export default withRouter(Dashboard);

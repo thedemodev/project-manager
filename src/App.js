@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import routes from './utils/routes';
 import 'reset-css';
 import './styles/sweet_alerts.css';
@@ -18,10 +18,7 @@ const App = () => {
     const reducer = (state, action) => {
         switch (action.type) {
             case 'set_user':
-                return {
-                    ...state,
-                    user: action.user
-                };
+                return {...state, user: action.user};
             default:
                 return state;
         };

@@ -4,6 +4,7 @@ import swal from '@sweetalert/with-react';
 import axios from 'axios';
 import Loader from 'react-loader-spinner'
 import { withRouter } from 'react-router-dom';
+import { useStateValue } from '../../context/provider';
 
 // Styled Components
 import {
@@ -17,6 +18,9 @@ import {
 } from './SignUpStyles';
 
 const SignUp = props => {
+    // Context State
+    const [{user}, setUser] = useStateValue();
+
     // State
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -49,6 +53,11 @@ const SignUp = props => {
             .then(response => {
                 // stop the loading animation
                 setLoading(false);
+                //set the user to the gloabl context state
+                setUser({
+                    type: 'set_user',
+                    user: {...response.data}
+                });
                 // push user to dashboard
                 props.history.push('/dashboard');
             })
