@@ -3,6 +3,7 @@ import moment from 'moment';
 
 // Component
 import CalenderMonths from '../CalenderMonths/CalenderMonths';
+import CalenderYear from '../CalenderYear/CalenderYear';
 
 // Styled Components
 import {
@@ -99,17 +100,32 @@ const Calender = () => {
         setShowMonths(!showMonths);
     };
 
+    // get the year
+    const year = () => dateObj.format("Y");
+
+    // set the year
+    const setYear = year => {
+        // create a new date object
+        let dateObject = Object.assign({}, dateObj);
+        // set the selected year onto the date obj
+        dateObject = moment(dateObject).set("year", year);
+        //change the date obj on state
+        setDateObj(dateObject);
+    };
+
     // JSX
     return (
         <CalenderContainer>
             <CalenderMonthContainer onClick={toggleMonthsCalender}>
                 {currentMonth()}
+                {year()}
             </CalenderMonthContainer>
             {
                 showMonths ?
-                    <CalenderMonths data={allMonths} setMonth={setMonth} />
-                :
-                null
+                    // <CalenderMonths data={allMonths} setMonth={setMonth} />
+                    <CalenderYear setYear={setYear} year={year()}/>
+                    :
+                    null
             }
             <CalenderTable>
                 <WeekdayHeader>

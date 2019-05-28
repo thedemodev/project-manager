@@ -3,6 +3,7 @@ import React from 'react';
 // Styled Components
 import {
     MonthsTable,
+    MonthsTableHeader,
     MonthsTableBody
 } from './CalenderMonthsStyles';
 
@@ -34,6 +35,11 @@ const CalenderMoths = props => {
 
     return (
         <MonthsTable>
+            <MonthsTableHeader>
+                <th></th>
+                <th>Select A Month</th>
+                <th></th>
+            </MonthsTableHeader>
             <MonthsTableBody>
                 {monthList}
             </MonthsTableBody>

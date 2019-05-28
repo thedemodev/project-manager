@@ -5,6 +5,14 @@ export const MonthsTable = styled.table`
     width: 25vw;
     background: white;
 `
+export const MonthsTableHeader = styled.thead`
+    background: #DDDDEA30;
+    text-align: center;
+    color: #A9A9A9;
+    th {
+        padding: 10px;
+    }
+`
 
 export const MonthsTableBody = styled.tbody`
     tr {
