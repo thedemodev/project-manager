@@ -1,5 +1,8 @@
 import React from 'react'
 
+// Components
+import Calender from '../Calender/Calender';
+
 // Styled Components
 import {
     NewProjectContainer
@@ -8,7 +11,7 @@ import {
 const NewProject = () => {
     return (
         <NewProjectContainer>
-            
+            <Calender />
         </NewProjectContainer>
     )
 };
