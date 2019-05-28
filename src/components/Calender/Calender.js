@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
+
+// Component
+import CalenderMonths from '../CalenderMonths/CalenderMonths';
 
 // Styled Components
 import {
-    CalenderContainer,
+    CalenderTable,
     WeekdayHeader,
-    WeekdayBody
+    WeekdayBody,
+    CalenderContainer,
+    CalenderMonthContainer
 } from './CalenderStyles';
 
 const Calender = () => {
     // State
     const [dateObj] = useState(moment());
+    const [allMonths] = useState(moment.months());
 
     // -- CALENDER -- //
 
@@ -50,8 +56,6 @@ const Calender = () => {
         );
     };
 
-    
-
     // get a structure of the calender
     const totalCells = [...blanks, ...daysInMonth];
     const rows = [];
@@ -75,14 +79,24 @@ const Calender = () => {
     // wrap all the rows in a <td>
     let calenderDays = rows.map(day => <tr>{day}</tr>);
 
+    // get the current month
+    const currentMonth = () => dateObj.format("MMM");
+
+    // JSX
     return (
         <CalenderContainer>
-            <WeekdayHeader>
-                <tr>{weekdayshortname}</tr>
-            </WeekdayHeader>
-            <WeekdayBody>
-                {calenderDays}
-            </WeekdayBody>
+            <CalenderMonthContainer>
+                {currentMonth()}
+            </CalenderMonthContainer>
+            <CalenderMonths data={allMonths}/>
+            <CalenderTable>
+                <WeekdayHeader>
+                    <tr>{weekdayshortname}</tr>
+                </WeekdayHeader>
+                <WeekdayBody>
+                    {calenderDays}
+                </WeekdayBody>
+            </CalenderTable>
         </CalenderContainer>
     )
 };
