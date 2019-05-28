@@ -32,16 +32,25 @@ const Calender = () => {
     // create a blank area for the days that are before the month starts
     const blanks = [];
     for (let i = 0; i < firstDayOfMonth(); i++) {
-        blanks.push(<td>{""}</td>);
+        blanks.push(<td className="blank">{""}</td>);
+    };
+
+    // find the current day
+    const currentDay = () => {
+        return dateObj.format('D');
     };
 
     // create days in the month
     const daysInMonth = [];
     for (let i = 1; i <= moment().daysInMonth(); i++) {
+        // check to see if it is a current day
+        let today = i == currentDay() ? "today" : "";
         daysInMonth.push(
-            <td>{i}</td>
+            <td className={today}>{i}</td>
         );
     };
+
+    
 
     // get a structure of the calender
     const totalCells = [...blanks, ...daysInMonth];
@@ -63,7 +72,6 @@ const Calender = () => {
             rows.push(cells);
         };
     });
-    console.log(rows)
     // wrap all the rows in a <td>
     let calenderDays = rows.map(day => <tr>{day}</tr>);
 
