@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
+import * as Icon from 'react-feather';
 
 // Component
 import CalenderMonths from '../CalenderMonths/CalenderMonths';
@@ -19,6 +20,7 @@ const Calender = () => {
     const [dateObj, setDateObj] = useState(moment());
     const [allMonths] = useState(moment.months());
     const [calenderDisplay, setCalenderDisplay] = useState(0);
+    const [trigger, triggerRender] = useState(false);
 
     // get a short weekday from moment
     const weekdayshort = moment.weekdaysShort();
@@ -143,13 +145,46 @@ const Calender = () => {
         }
     };
 
+    //functions for the next and previous calender arrows
+    const prev = () => {
+        // store the current
+        let current = "";
+        // check the display
+        if (calenderDisplay === 2){
+            current = "year";
+        } else {
+            current = "month";
+        };
+        //change the date obj
+        setDateObj(dateObj.subtract(1, current));
+        // force a render by updating trigger on state since it's not an obj
+        triggerRender(!trigger);
+    };
+
+    const next = () => {
+        // store the current
+        let current = "";
+        // check display
+        if (calenderDisplay == 2){
+            current = "year";
+        } else {
+            current = "month";
+        };
+        //change the date obj
+        setDateObj(dateObj.add(1, current));
+        // force a render by updating trigger on state since it's not an obj
+        triggerRender(!trigger);
+    };
+
 
     // JSX
     return (
         <CalenderContainer>
             <CalenderMonthContainer>
+                <span onClick={prev}><Icon.ChevronLeft/></span>
                 <span onClick={toggleMonthsCalender}>{currentMonth()}</span>
                 <span onClick={toggleYearsCalender}>{year()}</span>
+                <span onClick={() => next()}><Icon.ChevronRight/></span>
             </CalenderMonthContainer>
             {
                 showCalenderViews()

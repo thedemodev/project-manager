@@ -6,9 +6,9 @@ export const MonthsTable = styled.table`
     background: white;
 `
 export const MonthsTableHeader = styled.thead`
-    background: #DDDDEA30;
+    background: #28548e;
     text-align: center;
-    color: #A9A9A9;
+    color: white;
     th {
         padding: 10px;
     }

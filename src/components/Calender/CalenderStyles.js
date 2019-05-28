@@ -33,7 +33,7 @@ export const CalenderTable = styled.table`
 export const WeekdayHeader = styled.thead`
     tr {
         height: 5vh;
-        background: #336CB6;
+        background: #28548e;
         border-radius: 3px 3px 3px 3px;
         th {
             color: white;
