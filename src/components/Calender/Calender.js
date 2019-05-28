@@ -18,7 +18,7 @@ const Calender = () => {
     // State
     const [dateObj, setDateObj] = useState(moment());
     const [allMonths] = useState(moment.months());
-    const [showMonths, setShowMonths] = useState(false);
+    const [calenderDisplay, setCalenderDisplay] = useState(0);
 
     // get a short weekday from moment
     const weekdayshort = moment.weekdaysShort();
@@ -97,7 +97,24 @@ const Calender = () => {
     // hide and show the months calender
     const toggleMonthsCalender = () => {
         // change the display of months calender
-        setShowMonths(!showMonths);
+        if (calenderDisplay === 1) {
+            setCalenderDisplay(0);
+        } else if (calenderDisplay === 2) {
+            setCalenderDisplay(1);
+        } else {
+            setCalenderDisplay(1);
+        };
+    };
+
+    // show the year calender
+    const toggleYearsCalender = () => {
+        if (calenderDisplay === 2) {
+            setCalenderDisplay(0);
+        } else if (calenderDisplay === 1) {
+            setCalenderDisplay(2);
+        } else {
+            setCalenderDisplay(2);
+        };
     };
 
     // get the year
@@ -113,19 +130,29 @@ const Calender = () => {
         setDateObj(dateObject);
     };
 
+
+    // function to show the calender views
+    const showCalenderViews = () => {
+        switch (calenderDisplay) {
+            case 1:
+                return <CalenderMonths data={allMonths} setMonth={setMonth} />;
+            case 2:
+                return <CalenderYear setYear={setYear} year={year()} />;
+            default:
+                return null;
+        }
+    };
+
+
     // JSX
     return (
         <CalenderContainer>
-            <CalenderMonthContainer onClick={toggleMonthsCalender}>
-                {currentMonth()}
-                {year()}
+            <CalenderMonthContainer>
+                <span onClick={toggleMonthsCalender}>{currentMonth()}</span>
+                <span onClick={toggleYearsCalender}>{year()}</span>
             </CalenderMonthContainer>
             {
-                showMonths ?
-                    // <CalenderMonths data={allMonths} setMonth={setMonth} />
-                    <CalenderYear setYear={setYear} year={year()}/>
-                    :
-                    null
+                showCalenderViews()
             }
             <CalenderTable>
                 <WeekdayHeader>

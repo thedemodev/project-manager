@@ -62,7 +62,9 @@ const CalenderYear = props => {
         <CalenderYearTable>
             <YearTableHeader>
                 <tr>
+                    <th></th>
                     <th>Select A Year</th>
+                    <th></th>
                 </tr>
             </YearTableHeader>
             <YearTableBody>
