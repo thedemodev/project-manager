@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import moment from 'moment';
+import React from 'react';
 
 // Styled Components
 import {
     MonthsTable,
-    MonthsTableHeader,
     MonthsTableBody
 } from './CalenderMonthsStyles';
 
@@ -14,7 +12,7 @@ const CalenderMoths = props => {
 
     // push the months into the months array
     let months = props.data.map(month => (
-        <td>
+        <td onClick={event => props.setMonth(months, month)}>
             {month}
         </td>
     ));

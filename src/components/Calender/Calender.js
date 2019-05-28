@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 
 // Component
@@ -15,10 +15,13 @@ import {
 
 const Calender = () => {
     // State
-    const [dateObj] = useState(moment());
+    const [dateObj, setDateObj] = useState(moment());
     const [allMonths] = useState(moment.months());
 
-    // -- CALENDER -- //
+    // Effects
+    useEffect(() => {
+       
+    });
 
     // get a short weekday from moment
     const weekdayshort = moment.weekdaysShort();
@@ -82,13 +85,26 @@ const Calender = () => {
     // get the current month
     const currentMonth = () => dateObj.format("MMM");
 
+    // change the month selected
+    const setMonth = (months, month) => {
+        // get the number of the month
+        let monthNo = months.findIndex(m => m.props.children === month);
+        // create a new data object
+        let dateObject = Object.assign({}, dateObj);
+        // change the month value
+        dateObject = moment(dateObject).set("month", monthNo);
+        console.log(dateObject);
+        // update the date obj on state
+        setDateObj(dateObject);
+    };
+
     // JSX
     return (
         <CalenderContainer>
             <CalenderMonthContainer>
                 {currentMonth()}
             </CalenderMonthContainer>
-            <CalenderMonths data={allMonths}/>
+            <CalenderMonths data={allMonths} setMonth={setMonth}/>
             <CalenderTable>
                 <WeekdayHeader>
                     <tr>{weekdayshortname}</tr>

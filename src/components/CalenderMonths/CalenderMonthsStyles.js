@@ -11,10 +11,12 @@ export const MonthsTableBody = styled.tbody`
         width: 100%;
         td {
             text-align: center;
-            padding: 10px;
-            padding-top: 12px;
-            padding-bottom: 12px;
+            padding: 14px;
             font-size: 14px;
+            &:hover {
+                color: #336CB6;
+                cursor: pointer;
+            }
         }
     }
 `
