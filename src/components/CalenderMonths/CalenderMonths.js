@@ -30,7 +30,7 @@ const CalenderMoths = props => {
     rows.push(cells);
 
     //map over the rows and return them wrapped in a <tr> tag
-    let monthList = rows.map(row => <tr>{row}</tr>);
+    let monthList = rows.map(row => <tr onCLick={props.showMonths}>{row}</tr>);
 
     return (
         <MonthsTable>

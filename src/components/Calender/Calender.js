@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 
 // Component
@@ -17,11 +17,7 @@ const Calender = () => {
     // State
     const [dateObj, setDateObj] = useState(moment());
     const [allMonths] = useState(moment.months());
-
-    // Effects
-    useEffect(() => {
-       
-    });
+    const [showMonths, setShowMonths] = useState(false);
 
     // get a short weekday from moment
     const weekdayshort = moment.weekdaysShort();
@@ -93,18 +89,28 @@ const Calender = () => {
         let dateObject = Object.assign({}, dateObj);
         // change the month value
         dateObject = moment(dateObject).set("month", monthNo);
-        console.log(dateObject);
         // update the date obj on state
         setDateObj(dateObject);
+    };
+
+    // hide and show the months calender
+    const toggleMonthsCalender = () => {
+        // change the display of months calender
+        setShowMonths(!showMonths);
     };
 
     // JSX
     return (
         <CalenderContainer>
-            <CalenderMonthContainer>
+            <CalenderMonthContainer onClick={toggleMonthsCalender}>
                 {currentMonth()}
             </CalenderMonthContainer>
-            <CalenderMonths data={allMonths} setMonth={setMonth}/>
+            {
+                showMonths ?
+                    <CalenderMonths data={allMonths} setMonth={setMonth} />
+                :
+                null
+            }
             <CalenderTable>
                 <WeekdayHeader>
                     <tr>{weekdayshortname}</tr>

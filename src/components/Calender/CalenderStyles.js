@@ -16,6 +16,9 @@ export const CalenderMonthContainer = styled.div`
     justify-content: space-around;
     align-items: center;
     font-size: 22px;
+    &:hover {
+        cursor: pointer;
+    }
 `
 
 export const CalenderTable = styled.table`
