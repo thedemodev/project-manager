@@ -51,13 +51,15 @@ export const WeekdayBody = styled.tbody`
         padding: 5px;
         padding-top: 8px;
         text-align: center;
+        &:hover {
+            cursor: pointer;
+            background: #28548e30;
+        }
         &.blank {
             background: #DDDDEA20;
         }
         &.today {
-            border: 2px solid #E84675;
-            border-radius: 50%;
-            color: #E84675;
+            background: #E8467530;
         }
     }
 `

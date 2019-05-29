@@ -21,6 +21,7 @@ const Calender = () => {
     const [allMonths] = useState(moment.months());
     const [calenderDisplay, setCalenderDisplay] = useState(0);
     const [trigger, triggerRender] = useState(false);
+    const [selectedDay, setSelectedDay] = useState(null);
 
     // get a short weekday from moment
     const weekdayshort = moment.weekdaysShort();
@@ -48,13 +49,19 @@ const Calender = () => {
         return dateObj.format('D');
     };
 
+    // select the day
+    const onDayClick = day => {
+        //nupdate the selected day
+        setSelectedDay(day);
+    };
+
     // create days in the month
     const daysInMonth = [];
     for (let i = 1; i <= moment().daysInMonth(); i++) {
         // check to see if it is a current day
         let today = i == currentDay() ? "today" : "";
         daysInMonth.push(
-            <td className={today}>{i}</td>
+            <td className={today} onClick={()=> onDayClick(i)}>{i}</td>
         );
     };
 
