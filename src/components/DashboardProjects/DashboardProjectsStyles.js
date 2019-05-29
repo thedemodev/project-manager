@@ -14,7 +14,7 @@ export const DashboardProjectsContainer = styled.div`
 `
 
 export const DashboardProjectsHeader = styled.div`
-    width: 90%;
+    width: 75%;
     height: 10vh;
     display: flex;
     flex-direction: row;

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 // Components
 export const CalenderContainer = styled.div`
     height: auto;
-    width: auto;
+    width: 25vw;
+    box-shadow: 1px 1px 5px 0.5px #DDDDEA80;
 `
 export const CalenderMonthContainer = styled.div`
     width: 25vw;
@@ -26,7 +27,6 @@ export const CalenderTable = styled.table`
     height: 30vh;
     background: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    /* box-shadow: 1px 1px 5px 0.5px #DDDDEA80; */
     border-radius: 3px 3px 3px 3px;
 `
 

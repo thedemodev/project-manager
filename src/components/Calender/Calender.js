@@ -19,7 +19,7 @@ const Calender = () => {
     // State
     const [dateObj, setDateObj] = useState(moment());
     const [allMonths] = useState(moment.months());
-    const [calenderDisplay, setCalenderDisplay] = useState(0);
+    const [calenderDisplay, setCalenderDisplay] = useState(1);
     const [trigger, triggerRender] = useState(false);
     const [selectedDay, setSelectedDay] = useState(null);
 
@@ -57,9 +57,9 @@ const Calender = () => {
 
     // create days in the month
     const daysInMonth = [];
-    for (let i = 1; i <= moment().daysInMonth(); i++) {
+    for (let i = 1; i <= dateObj.daysInMonth(); i++) {
         // check to see if it is a current day
-        let today = i == currentDay() ? "today" : "";
+        let today = i == selectedDay ? "today" : "";
         daysInMonth.push(
             <td className={today} onClick={()=> onDayClick(i)}>{i}</td>
         );
