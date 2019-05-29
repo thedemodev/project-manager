@@ -43,6 +43,11 @@ export const NewProjectForm = styled.form`
         outline: none;
         margin-top: 2%;
         margin-left: 10%;
+        font-size: 14px;
+        transition: linear 150ms;
+        &:focus {
+            border: 2px solid #E84675;
+        }
     }
     h2 {
         margin-top: 5%;
@@ -57,6 +62,11 @@ export const NewProjectForm = styled.form`
         outline: none;
         margin-top: 2%;
         margin-left: 10%;
+        font-size: 14px;
+        transition: linear 150ms;
+        &:focus {
+            border: 2px solid #E84675;
+        }
     }
     h3 {
         margin-top: 5%;

@@ -15,13 +15,12 @@ import {
     CalenderMonthContainer
 } from './CalenderStyles';
 
-const Calender = () => {
+const Calender = props => {
     // State
     const [dateObj, setDateObj] = useState(moment());
     const [allMonths] = useState(moment.months());
     const [calenderDisplay, setCalenderDisplay] = useState(1);
     const [trigger, triggerRender] = useState(false);
-    const [selectedDay, setSelectedDay] = useState(null);
 
     // get a short weekday from moment
     const weekdayshort = moment.weekdaysShort();
@@ -51,15 +50,27 @@ const Calender = () => {
 
     // select the day
     const onDayClick = day => {
-        //nupdate the selected day
-        setSelectedDay(day);
+        let month = dateObj.month();
+        let year = dateObj.year();
+        // format the month correctly
+        if (month < 10) {
+            month = `0${month}`;
+        };
+        // format the day correctly
+        if (day < 10){
+            day = `0${day}`;
+        };
+        // create a new string with the date
+        const dateString = `${month}/${day}/${year}`;
+        // update the selected day
+        props.setDate(dateString);
     };
 
     // create days in the month
     const daysInMonth = [];
     for (let i = 1; i <= dateObj.daysInMonth(); i++) {
         // check to see if it is a current day
-        let today = i == selectedDay ? "today" : "";
+        let today = i == props.date ? "today" : "";
         daysInMonth.push(
             <td className={today} onClick={()=> onDayClick(i)}>{i}</td>
         );

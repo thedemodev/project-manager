@@ -50,7 +50,6 @@ const Login = props => {
         // make a post request to login the user
         axios.post('/auth/login', { username, password })
             .then(response => {
-                console.log(props)
                 // set loading to false
                 setLoading(false);
                 //set the user to the gloabl context state
