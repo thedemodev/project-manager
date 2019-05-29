@@ -23,7 +23,7 @@ const NewProject = () => {
     const [description, setDescription] = useState('');
     const [date, setDate] = useState('');
 
-    console.log(date)
+    console.log(date, title, description)
 
     // logic
     const submitProject = event => {
@@ -50,9 +50,9 @@ const NewProject = () => {
             <NewProjectInfo>
                 <NewProjectForm onSubmit={submitProject}>
                     <h1><Icon.PlusCircle size={15} /> Choose a Title</h1>
-                    <input type="text" />
+                    <input type="text" onChange={event => setTitle(event.target.value)}/>
                     <h2><Icon.FileText size={15} /> Provide a Description</h2>
-                    <textarea type="text" />
+                    <textarea type="text" onChange={event => setDescription(event.target.value)}/>
                     <h3><Icon.Calendar size={15} /> Select a Due Date By Using The Calender</h3>
                     <button>Create Project</button>
                 </NewProjectForm>

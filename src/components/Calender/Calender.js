@@ -21,6 +21,7 @@ const Calender = props => {
     const [allMonths] = useState(moment.months());
     const [calenderDisplay, setCalenderDisplay] = useState(1);
     const [trigger, triggerRender] = useState(false);
+    const [selectedDay, setSelectedDay] = useState(null);
 
     // get a short weekday from moment
     const weekdayshort = moment.weekdaysShort();
@@ -50,6 +51,8 @@ const Calender = props => {
 
     // select the day
     const onDayClick = day => {
+        // update the selected day
+        setSelectedDay(day);
         let month = dateObj.month();
         let year = dateObj.year();
         // format the month correctly
@@ -70,7 +73,7 @@ const Calender = props => {
     const daysInMonth = [];
     for (let i = 1; i <= dateObj.daysInMonth(); i++) {
         // check to see if it is a current day
-        let today = i == props.date ? "today" : "";
+        let today = i == selectedDay ? "today" : "";
         daysInMonth.push(
             <td className={today} onClick={()=> onDayClick(i)}>{i}</td>
         );
