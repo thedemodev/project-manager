@@ -1,7 +1,6 @@
 import React from 'react'
 import gravatar from 'gravatar';
 import { useStateValue } from '../../context/provider';
-import * as Icon from 'react-feather';
 
 // Styled Components
 import {
@@ -21,9 +20,8 @@ const ApplicationNav = props => {
             <UserContainer>
                 <img src={gravatar.url(user.email)} />
             </UserContainer>
-            {/* <Icon.Bell size={20} /> */}
         </ApplicationNavContainer>
-    )
+    );
 };
 
 export default ApplicationNav;
